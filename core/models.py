@@ -57,14 +57,10 @@ class Funcionario(Base):
         'core.Cargo', verbose_name='Cargo', on_delete=models.CASCADE)
     bio = models.TextField('Bio', max_length=200)
     imagem = StdImageField('Imagem', upload_to=get_file_path, variations={
-                           'thumdth': {'width ': 480, 'height': 480, 'crop': True}})
+                           'thumb': {"width": 480, "height": 480, "crop": True}})
     facebock = models.CharField('Facebock', max_length=100, default='#')
     twitter = models.CharField('Twitter', max_length=100, default='#')
     instagram = models.CharField('Instagram', max_length=100, default='#')
-
-    class meta:
-        verbose_nome = 'Funcionário'
-        verbose_nome_plural = 'Funcionários'
 
     def __str__(self):
         return self.nome
